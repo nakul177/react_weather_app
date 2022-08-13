@@ -1,41 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function TopButton() {
-
-    const cities = [
-        {
-            id:1,
-            title:'Londan'
-        },
-        {
-            id:2,
-            title:'Paris'
-        },
-        {
-            id:3,
-            title:'Tokyo'
-        },
-        {
-            id:4,
-            title:'Toronto'
-        },
-        {
-            id:5,
-            title:'Sydeney'
-        },
-        
-    ]
-
   return (
-    <div className='flex items-center justify-around my-6'>
-
-{cities.map((city) => (
-
-<button key={city.id} className='text-white text-lg font-medium '>{city.title}</button>
-
-))}
+    <div className="flex items-center justify-around my-6">
+      <button className="text-white text-4xl font-bold ">
+        WEATHER-WEB-APP
+      </button>
     </div>
-  )
+  );
 }
 
-export default TopButton
+export default TopButton;
