@@ -6,6 +6,7 @@ import TempratureAndDetails from "./components/TempratureAndDetails";
 import Forecast from "./components/Forecast";
 import getFormattedWeatherData from "./services/weatherService";
 import { useEffect, useState } from "react";
+import WeatherChart from "./components/WeatherChart";
 
 function App() {
   const [query, setQurey] = useState({ q: "Pune" });
@@ -22,12 +23,20 @@ function App() {
     fetchWeather();
   }, [query, units]);
 
-  console.log(weather);
+  
+
+ 
+
+
+
+  
+
+
 
   const formatBg = () => {
-    if (!weather) return "from-cyan-700 to-blue-700";
+    if (!weather) return "from-cyan-700 to-red-700";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp >= threshold) return "from-cyan-700 to-blue-700";
+    if (weather.temp >= threshold) return "from-cyan-700 to-red-700";
 
     return "from-yellow-700 to-orange-700";
   };
@@ -43,8 +52,9 @@ function App() {
         <>
           <TimeAndLocation weather={weather} />
           <TempratureAndDetails weather={weather} />
-          <Forecast title={"Hourly Forecast"} items={weather.hourly} />
+          <Forecast title={"Hourly Forecast"} items={weather.hourly.splice(1,6)} />
           <Forecast title={"Daily Forecast"} items={weather.daily} />
+          <WeatherChart items={weather.hourly}/>
         </>
       )}
     </div>
